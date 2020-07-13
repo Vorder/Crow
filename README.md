@@ -1,6 +1,22 @@
 # crow
 
 ## Project setup
+- install nodejs. you can find the tutorial in link below:
+```
+https://nodejs.org/en/download/package-manager
+```
+
+- install npm 
+```
+apt install npm 
+```
+
+- install vue-cli:
+```
+https://cli.vuejs.org/guide/prototyping.html
+```
+
+- for installing packages:
 ```
 npm install
 ```
@@ -8,6 +24,11 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+```
+
+### run tests
+```
+npm test
 ```
 
 ### Compiles and minifies for production
