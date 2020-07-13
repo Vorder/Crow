@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <center>
+      <issue v-model="width"></issue>
+    </center>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Issue from './components/Issue.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+   Issue
+  },
+  data () {
+    return{
+      width: 100,
+      scale: 1
+    }
+  },
 }
 </script>
 
@@ -22,7 +29,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
