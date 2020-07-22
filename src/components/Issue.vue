@@ -1,43 +1,25 @@
 <template>
-    <div id='rec' :style="{ width: width+'px' } " @wheel="zoom($event)"></div>
+    <div class="issue">{{ name }}</div>
 </template>
 
 <script>
-import json from '../../__tests__/data.json'
-
 export default {
   props:{
-      widths: Number
-    },
-  data (){
-       return {
-         width: 40,
-         scale: 1,
-         myJson: json
-       }
-  },
-  methods: {
-      zoom(event) {
-         this.scale += event.deltaY * -0.01;
-
-         // Restrict scale
-         this.scale = Math.min(Math.max(.05, this.scale), 4);
-         const el = document.getElementById('rec');
-         // Apply scale transform
-         el.style.transform = `scaleX(${this.scale})`;
-      },
-  },
-  mounted(){
-      console.log(this.myJson);
-      this.width = this.myJson.issue1.days * 40
-  }
+      name: String
+    }
 }
 </script>
 
 <style>
-#rec {
-    width: 40px;
-    height: 20px;
-    border: 2px solid blue;
+.issue {
+  width: 100%;
+  height: 40px;
+  border: 4px solid white;
+  border-right: 20px solid white ;
+  border-left: 20px solid white ;
+  background-color: blue;
+  color: bisque;
+  padding-top: 5px;
+  z-index: 2;
 }
 </style>
