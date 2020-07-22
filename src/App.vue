@@ -1,34 +1,43 @@
 <template>
   <div id="app">
-    <center>
-      <issue v-model="width"></issue>
-    </center>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2">
+        <Backlog></Backlog>
+      </div>
+      <div class="col-sm-8">
+        <Timeline></Timeline>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import Issue from './components/Issue.vue'
+import Timeline from './components/Timeline.vue'
+import Backlog from './components/Backlog.vue'
 
 export default {
   name: 'App',
+
   components: {
-   Issue
-  },
-  data () {
-    return{
-      width: 100,
-      scale: 1
-    }
+   Timeline,
+   Backlog
   },
 }
 </script>
 
 <style>
+@import './assets/bootstrap.min.css';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   margin-top: 60px;
+  line-height: 1.5;
+}
+.h2, h2 {
+  font-size: 1.65em;
+  font-weight: bold;
 }
 </style>
