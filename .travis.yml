@@ -11,11 +11,15 @@ install:
 
 script:
   - npm run build
+  - cp -R ./dist ./demo-dist
+  - npm run build-bundle
+  - npm test
 
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist
-  on:
-    branch: master
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    target-branch: gh-pages
+    local-dir: demo-dist
+    on:
+      tags: true
