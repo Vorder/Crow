@@ -41,7 +41,6 @@ describe('Issue', () => {
     await div.trigger('wheel')
     expect(wrapper.vm.width).toBe(40)
     expect(wrapper.find('div').attributes().style).toBe("width: 40px;")
-    console.log(div)
   })
 
 })

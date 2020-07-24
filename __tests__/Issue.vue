@@ -1,5 +1,5 @@
 <template>
-  <div id='rec' :style="{ width: width+'px' } " @wheel="zoom($event)"></div>
+  <div id='rec' :style="{ width: width+'px' } "></div>
 </template>
 
 <script>
