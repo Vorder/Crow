@@ -19,5 +19,5 @@ deploy:
     github-token: $GITHUB_TOKEN
     target-branch: gh-pages
     local-dir: demo-dist
-    on:
-      tags: true
+  on:
+    branch: master
