@@ -6,7 +6,7 @@
             <div class="firstblock">
                 Date Developers
             </div>
-            <div class="date" v-for="(item, index) in onemonth()" 
+            <div class="date" v-for="(item, index) in calendar()" 
             :key="item+index" 
             :style="{ 'grid-column': index+2 }">
                 <p>{{ item.month }}</p>
@@ -75,17 +75,27 @@ export default {
             var l = document.getElementById("container");
             l.scrollLeft += 500;    
         },
-        onemonth (){
-            var month_name = month[this.today.getMonth()];
-            var len = this.daysInMonth(2020, this.today.getMonth());
-            const n = new Array(len);
-            for (let i = 0; i < len; i++) {
-                n[i] = {
-                    month: month_name,
-                    day: i+1
+        calendar (){
+            var dayss = new Array(this.calendar_length);
+            var counter = new Date(this.startdate);
+            for (let i = 0; i <= this.calendar_length ; i++){
+                if(counter.getDate() == this.today.getDate() &&
+                   counter.getMonth()==this.today.getMonth() &&
+                   counter.getFullYear() == this.today.getFullYear()) {
+                    dayss[i] = { 
+                        month: month[this.today.getMonth()],
+                        day: this.today.getDate()+ "\nToday"
+                        };
                 }
+                else {
+                    dayss[i] = { 
+                        month: month[counter.getMonth()],
+                        day: counter.getDate()
+                    }
+                }
+                counter.setDate(counter.getDate() + 1);
             }
-            return n;
+            return dayss
         },
         daysInMonth(iYear, iMonth) 
         { 
