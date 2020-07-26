@@ -30,13 +30,14 @@
             </div>
         </div>
         <div class="row, endtime">
-            <h3>Estimated time: {{ endDate }}</h3>
+            <h3>Estimated end time: {{ endAll }}</h3>
         </div>
     </div>
 </div>
 </template>
 
 <script>
+import dates from '../../server_data/calendar.json'
 import issues from '../../server_data/issues.json'
 import devs from '../../server_data/developers.json'
 import Issue from './Issue.vue'
@@ -52,16 +53,17 @@ export default {
     },
     data () {
         return{
-            endDate : "2020-07-26",
+            endAll : "2020-09-9",
             developers: devs,
-            issuelist: issues
+            issuelist: issues,
+            startdate: null,
+            enddate: null
         }
     },
     methods:{
         find_date (issue) {
-            var d1 = issue.startDate.split('-');
-            var d2 = new Date(issue.startDate);
-            var left = Math.round((d2 - (new Date(d1[0],this.today.getMonth(), 1)))/this.day_length)+1;
+            var d = new Date(issue.startTime);
+            var left = Math.round((d - (new Date(this.startdate)))/this.day_length)+1;
             return left;
         },
         area (issue) {
@@ -73,7 +75,7 @@ export default {
         },
         goToday(){
             var l = document.getElementById("container");
-            l.scrollLeft += 500;    
+            l.scrollLeft += ((this.today - this.startdate)/this.day_length)*80 - 560; 
         },
         calendar (){
             var dayss = new Array(this.calendar_length);
@@ -119,6 +121,9 @@ export default {
         today: function() {
             return new Date();
         },
+        calendar_length: function() {
+            return (this.enddate - this.startdate)/this.day_length
+        },
         lines: function(){
             var n = new Array();
             var c = 0;
@@ -128,7 +133,7 @@ export default {
                         for(let k=0; k<issues.length; k++){
                             if(issues[k].id == issues[i].relatedTo[j]){
                                 n.push([issues[k].developerNum, issues[i].developerNum,
-                                 issues[k].endDate, issues[i].startDate, c++])
+                                 issues[k].endTime, issues[i].startTime, c++])
                             }
                         }
                     }
@@ -138,6 +143,8 @@ export default {
         }
     },
     mounted(){
+        this.startdate = new Date(dates.start);
+        this.enddate = new Date(dates.end);
         // this.goToday();
     }
 }

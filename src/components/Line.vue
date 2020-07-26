@@ -25,7 +25,7 @@ export default {
             var d1 = new Date(this.startdate);
             var d2 = new Date(this.enddate);
             var one_day=1000*60*60*24;
-            console.log(this.ids)
+
             var l1 = document.getElementById((this.ids+'l1'));
             var l2 = document.getElementById(this.ids+'l2');
             var l3 = document.getElementById(this.ids+'l3');
