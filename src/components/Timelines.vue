@@ -75,5 +75,6 @@ export default {
 .endtime {
     text-align: center;
     margin-top: 30px;
+    width: 1150px;
 }
 </style>

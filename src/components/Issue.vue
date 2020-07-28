@@ -22,8 +22,8 @@ export default {
   border: 4px solid white;
   border-right: 20px solid white ;
   border-left: 20px solid white ;
-  background-color: blue;
-  color: bisque;
+  background-color: #283593;
+  color: #ffffe4;
   padding-top: 5px;
   z-index: 2;
   text-shadow: 0px 0px 3px black;

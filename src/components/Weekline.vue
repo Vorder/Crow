@@ -142,59 +142,23 @@ export default {
 </script>
 
 <style>
-#container {
-    display: grid;
-    position: relative;
-    border: 2px solid gray;
-    width: 1150px;
-    height: 700px;
-    /* grid-template: repeat(5, 30px) / repeat(120, 80px); */
-    overflow: auto;
-    text-align: center;
-}
-.item {
-    border: 2px solid blue;
-    grid-column: 1 / 4;
-    grid-column: 1 / span 3;
-    grid-row: 2 / 5;
-    grid-area: 1 / 1 / 4 / 5;
-}
+@import '../assets/timeline.css';
+
 .firstblock {
     grid-row: 1 / 4;
     grid-column: 1 / 6;
     position: sticky;
     width: 120px;
     top:0;
-    z-index: 10;
-    background-color: rgb(135, 222, 181);
-    padding: 5px;
-    font-size: 1em;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-}
-.dev {
-    width: 120px;
-    height: 50px;
-    padding: 5px;
-    border-right: 2px solid black;
-    border-bottom: 2px solid grey;
-    text-align: center;
-    position: sticky;
-    left: 0;
-    background-color: white;
-    z-index: 3;
-}
-.lines {
-    position: absolute;
 }
 .week {
     grid-row: 1 / 4;
     height: 100px;
     width: 140px;
     display: inline-block;
-    border-right: 2px solid gray;
+    border-right: 2px solid #b0bec5;
     border-bottom: 2px solid black;
-    background-color: blanchedalmond;
+    background-color: #ffe0b2;
     text-align: center;
     position: sticky;
     top:0;

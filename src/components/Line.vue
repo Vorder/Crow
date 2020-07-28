@@ -54,7 +54,7 @@ export default {
 .l1, .l2, .l3{
   position:absolute;
   width:3px;
-  background-color:green;
+  background-color:#388e3c;
 }  
 .l3, .l1 { 
     height: 3px;
