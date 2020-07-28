@@ -1,11 +1,16 @@
 <template>
-    <div class="issue">{{ name }}</div>
+    <div class="issue" :style="{ 'border-left': border + 'px solid white', 
+                                 'border-right': border + 'px solid white',
+                                 'font-size': textsize + 'em' }">
+      {{ name }} </div>
 </template>
 
 <script>
 export default {
   props:{
-      name: String
+      name: String,
+      border: Number,
+      textsize: Number
     }
 }
 </script>
@@ -21,5 +26,7 @@ export default {
   color: bisque;
   padding-top: 5px;
   z-index: 2;
+  text-shadow: 0px 0px 3px black;
+  font-size: 1em;
 }
 </style>

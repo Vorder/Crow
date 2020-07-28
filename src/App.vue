@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Timeline from './components/Timeline.vue'
+import Timeline from './components/Timelines.vue'
 import Backlog from './components/Backlog.vue'
 
 export default {
