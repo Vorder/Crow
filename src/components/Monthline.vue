@@ -8,10 +8,10 @@
         :style="{ 'grid-row': index+4 }">
             {{ dev }}
         </div>
-        <div class="month" v-for="(item, index) in months()" 
-        :key="item+index" 
-        :style="{ 'grid-column': index*30+13 +'/span 30' }">
-            <p>{{ item }} </p>
+        <div class="month" v-for="item in months()" :key="item[0]" 
+        :style="{ 'grid-column': item[2]+13 +'/span'+ item[1], 
+        'width': item[1]* 10 + 'px'}">
+            <p>{{ item[0] }} </p>
         </div>
         <div v-for="item in issuelist" :key="item.id" 
         :style="{ 'grid-area': area(item) }">
@@ -44,7 +44,7 @@ export default {
     },
     data () {
         return{
-            issuelist: issues
+            issuelist: issues,
         }
     },
     props: {
@@ -65,19 +65,19 @@ export default {
         },
         lines: function(){
             var n = new Array();
-            var end = null;
-            var start = null;
+            var startblock = null;
+            var endblock = null;
             for(let i=0; i<issues.length; i++){
                 if(issues[i].relatedTo.length !=0){
                     for(let j=0; j<issues[i].relatedTo.length; j++){
                         for(let k=0; k<issues.length; k++){
                             if(issues[k].id == issues[i].relatedTo[j]){
-                                end = new Date(issues[k].endTime);
-                                end.setDate(end.getDate())
-                                start = new Date(issues[i].startTime);
-                                start.setDate(start.getDate())
+                                startblock = Math.round(
+                                    ((new Date(issues[k].endTime)) - this.startdate)/this.day_length);
+                                endblock = Math.round(
+                                    ((new Date(issues[i].startTime)) - this.startdate)/this.day_length);
                                 n.push([issues[k].developerNum, issues[i].developerNum, 
-                                end.toString(), start.toString()])
+                                startblock, endblock])
                             }
                         }
                     }
@@ -88,7 +88,6 @@ export default {
     },
     mounted(){
         this.startdate.setDate(1);
-        // this.goToday();
     },
      methods:{
         gridtemplate(){
@@ -106,19 +105,21 @@ export default {
             var a = '' + row + '/' + column_start + '/' + row +  '/span ' + column_end;
             return a;  
         },
-        goToday(){
-            var l = document.getElementById("container");
-            l.scrollLeft += 500;    
-        },
         daysInMonth(iYear, iMonth) 
         { 
             return 32 - new Date(iYear, iMonth, 32).getDate();
         },
         months() {
+            var days = 0;
             var n = new Array();
+            var indx = 0;
             var monthcount = this.enddate.getMonth() - this.startdate.getMonth();
             for(let i=0; i<=monthcount; i++){
-                n.push(month[this.startdate.getMonth()+i] + " " + this.startdate.getFullYear());
+                days = this.daysInMonth(this.startdate.getFullYear(), 
+                this.startdate.getMonth()+i);
+                n.push([month[this.startdate.getMonth()+i] + " " + this.startdate.getFullYear(), 
+                days, indx]);
+                indx += days;
             } 
             return n;
         },
