@@ -12,7 +12,7 @@
             </div>
         </keep-alive>
         <div class="row, endtime">
-            <h3>Estimated end time: {{ endAll }}</h3>
+            <h3>Estimated end time: {{ enddate.toDateString() }}</h3>
         </div>
     </div>
 </div>
@@ -23,12 +23,14 @@ import devs from '../../server_data/developers.json'
 import dates from '../../server_data/calendar.json'
 import Dayline from './Dayline.vue'
 import Weekline from './Weekline.vue'
+import Monthline from './Monthline.vue'
 
 
 export default {
     components: {
         Dayline,
-        Weekline
+        Weekline,
+        Monthline
     },
     data () {
         return{
@@ -38,7 +40,7 @@ export default {
             enddate: null,
             endAll : "2020-09-9",
             // timelines: ["Hourline", "Dayline", "Weekline", "Monthline", "Yearline"]
-            timelines: ["Weekline", "Dayline", "Weekline", "Dayline", "Weekline"]
+            timelines: ["Monthline", "Dayline", "Weekline", "Monthline", "Weekline"]
         }
     },
    
