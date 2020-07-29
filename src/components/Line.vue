@@ -11,8 +11,8 @@ export default {
     props: {
         startrow: Number, 
         endrow:Number, 
-        startdate:String, 
-        enddate:String,
+        startdate:Number, 
+        enddate:Number,
         datewidth: Number,
         gaplength: Number
     },
@@ -23,25 +23,21 @@ export default {
             const devheight = 50;
             const devwidth = 120;
 
-            var d1 = new Date(this.startdate);
-            var d2 = new Date(this.enddate);
-            var one_day=1000*60*60*24;
-
             var l1 = document.getElementById((this._uid+'l1'));
             var l2 = document.getElementById(this._uid+'l2');
             var l3 = document.getElementById(this._uid+'l3');
 
             l1.style.top = dateheight + Math.round((devheight * (this.startrow-1)) + devheight/3) + 'px';
-            l1.style.left = devwidth + (d1.getDate()-1) * datewidth - this.gaplength + 'px';
+            l1.style.left = devwidth + this.startdate * datewidth - this.gaplength + 'px';
             l1.style.width = this.gaplength + 'px';
             
             l2.style.top = l1.style.top;
-            l2.style.left =  devwidth + (d1.getDate()-1) * datewidth + 'px';
+            l2.style.left =  devwidth + this.startdate * datewidth + 'px';
             l2.style.height = (this.endrow - this.startrow)* devheight + 'px';
 
             l3.style.top = dateheight + (devheight * (this.endrow-1)) + Math.round(devheight/3) + 'px';
             l3.style.left = l2.style.left;
-            l3.style.width = ((d2 - d1)/one_day) * datewidth + this.gaplength + 'px';
+            l3.style.width = (this.enddate-this.startdate) * datewidth + this.gaplength + 'px';
         },
     },
     mounted(){

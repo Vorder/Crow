@@ -69,6 +69,8 @@ export default {
             var n = new Array();
             var end = null;
             var start = null;
+            var startblock = null;
+            var endblock = null;
             for(let i=0; i<issues.length; i++){
                 if(issues[i].relatedTo.length !=0){
                     for(let j=0; j<issues[i].relatedTo.length; j++){
@@ -77,9 +79,11 @@ export default {
                                 end = new Date(issues[k].endTime);
                                 end.setDate(end.getDate() + this.diffstart)
                                 start = new Date(issues[i].startTime);
-                                start.setDate(start.getDate() + this.diffstart)
+                                start.setDate(start.getDate() + this.diffstart);
+                                startblock = Math.round((end - this.startdate)/this.day_length);
+                                endblock = Math.round((start - this.startdate)/this.day_length);
                                 n.push([issues[k].developerNum, issues[i].developerNum, 
-                                end.toString(), start.toString()])
+                                startblock, endblock])
                             }
                         }
                     }

@@ -106,13 +106,19 @@ export default {
         },
         lines: function(){
             var n = new Array();
+            var startblock = null;
+            var endblock = null;
             for(let i=0; i<issues.length; i++){
                 if(issues[i].relatedTo.length !=0){
                     for(let j=0; j<issues[i].relatedTo.length; j++){
                         for(let k=0; k<issues.length; k++){
                             if(issues[k].id == issues[i].relatedTo[j]){
-                                n.push([issues[k].developerNum, issues[i].developerNum,
-                                 issues[k].endTime, issues[i].startTime])
+                                startblock = Math.round(
+                                    ((new Date(issues[k].endTime)) - this.startdate)/this.day_length);
+                                endblock = Math.round(
+                                    ((new Date(issues[i].startTime)) - this.startdate)/this.day_length);
+                                n.push([issues[k].developerNum, issues[i].developerNum, 
+                                startblock, endblock]);
                             }
                         }
                     }
