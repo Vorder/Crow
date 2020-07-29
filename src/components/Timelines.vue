@@ -59,7 +59,7 @@ export default {
             return (this.enddate - this.startdate)/this.day_length
         },
     },
-    mounted(){
+    beforeMount(){
         this.startdate = new Date(dates.start);
         this.enddate = new Date(dates.end);
     },
