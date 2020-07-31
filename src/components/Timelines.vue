@@ -38,7 +38,6 @@ export default {
             developers: devs,
             startdate: null,
             enddate: null,
-            endAll : "2020-09-9",
             // timelines: ["Hourline", "Dayline", "Weekline", "Monthline", "Yearline"]
             timelines: ["Monthline", "Dayline", "Weekline", "Monthline", "Weekline"]
         }

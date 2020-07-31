@@ -45,6 +45,7 @@ export default {
     data () {
         return{
             issuelist: issues,
+            monthstart: null
         }
     },
     props: {
@@ -61,7 +62,7 @@ export default {
             return new Date();
         },
         calendar_length: function() {
-            return (this.enddate - this.startdate)/this.day_length
+            return Math.round((this.enddate - this.monthstart)/this.day_length)
         },
         lines: function(){
             var n = new Array();
@@ -73,9 +74,9 @@ export default {
                         for(let k=0; k<issues.length; k++){
                             if(issues[k].id == issues[i].relatedTo[j]){
                                 startblock = Math.round(
-                                    ((new Date(issues[k].endTime)) - this.startdate)/this.day_length);
+                                    ((new Date(issues[k].endTime)) - this.monthstart)/this.day_length);
                                 endblock = Math.round(
-                                    ((new Date(issues[i].startTime)) - this.startdate)/this.day_length);
+                                    ((new Date(issues[i].startTime)) - this.monthstart)/this.day_length);
                                 n.push([issues[k].developerNum, issues[i].developerNum, 
                                 startblock, endblock])
                             }
@@ -86,8 +87,11 @@ export default {
             return n;
         }
     },
+    beforeMount(){
+        this.monthstart = new Date(this.startdate);
+        this.monthstart.setDate(1);
+    },
     mounted(){
-        this.startdate.setDate(1);
     },
      methods:{
         gridtemplate(){
@@ -95,7 +99,7 @@ export default {
         },
         find_date (issue) {
             var d2 = new Date(issue.startTime);
-            var left = Math.round((d2 - (new Date(this.startdate)))/this.day_length)+1;
+            var left = Math.round((d2 - (new Date(this.monthstart)))/this.day_length)+1;
             return left;
         },
         area (issue) {
@@ -113,11 +117,11 @@ export default {
             var days = 0;
             var n = new Array();
             var indx = 0;
-            var monthcount = this.enddate.getMonth() - this.startdate.getMonth();
+            var monthcount = this.enddate.getMonth() - this.monthstart.getMonth();
             for(let i=0; i<=monthcount; i++){
-                days = this.daysInMonth(this.startdate.getFullYear(), 
-                this.startdate.getMonth()+i);
-                n.push([month[this.startdate.getMonth()+i] + " " + this.startdate.getFullYear(), 
+                days = this.daysInMonth(this.monthstart.getFullYear(), 
+                this.monthstart.getMonth()+i);
+                n.push([month[this.monthstart.getMonth()+i] + " " + this.monthstart.getFullYear(), 
                 days, indx]);
                 indx += days;
             } 
@@ -150,5 +154,6 @@ export default {
     position: sticky;
     top:0;
     z-index: 10;
+    padding-top: 50px;
 }
 </style>

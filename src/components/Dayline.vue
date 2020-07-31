@@ -1,10 +1,12 @@
 <template>
-    <div id="container">
+    <div id="container"
+    :style="{ 'grid-template-columns': gridtemplate() }">
         <div class="firstblock">
             Date Developers
         </div>
         <div class="dev" v-for="(dev, index) in developers" :key="dev"
-        :style="{ 'grid-row': index+4 }">
+        :style="{ 'grid-row': index+4,
+         }">
             {{ dev }}
         </div>
         <div class="date" v-for="(item, index) in calendar()" 
@@ -54,9 +56,12 @@ export default {
         enddate: Date
     },
     methods:{
+        gridtemplate(){
+            return "120px repeat(" + this.calendar_length +", 80px)";
+        },
         find_date (issue) {
             var d = new Date(issue.startTime);
-            var left = Math.round((d - (new Date(this.startdate)))/this.day_length)+1;
+            var left = Math.round((d - this.startdate)/this.day_length)+1;
             return left;
         },
         area (issue) {
@@ -68,7 +73,7 @@ export default {
         },
         goToday(){
             var l = document.getElementById("container");
-            l.scrollLeft += ((this.today - this.startdate)/this.day_length)*80 - 560; 
+            l.scrollLeft += ((this.today - this.startdate)/this.day_length)*80 - 450; 
         },
         calendar (){
             var dayss = new Array(this.calendar_length);
@@ -102,7 +107,7 @@ export default {
             return new Date();
         },
         calendar_length: function() {
-            return (this.enddate - this.startdate)/this.day_length
+            return Math.round((this.enddate - this.startdate)/this.day_length)
         },
         lines: function(){
             var n = new Array();
@@ -135,4 +140,19 @@ export default {
 
 <style>
 @import '../assets/timeline.css';
+
+.date {
+    grid-row: 1 / 4;
+    width: 80px;
+    padding: 0px 20px;
+    height: 100px;
+    display: inline-block;
+    border-right: 2px solid #b0bec5;
+    border-bottom: 2px solid black;
+    background-color: #ffe0b2;
+    text-align: center;
+    position: sticky;
+    top:0;
+    z-index: 10;
+}
 </style>

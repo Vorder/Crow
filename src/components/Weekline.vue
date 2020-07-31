@@ -63,7 +63,7 @@ export default {
             return new Date();
         },
         calendar_length: function() {
-            return (this.enddate - this.startdate)/this.day_length
+            return Math.round((this.enddate - this.startdate)/this.day_length)
         },
         lines: function(){
             var n = new Array();
