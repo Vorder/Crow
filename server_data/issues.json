@@ -3,8 +3,8 @@
         "id": 1,
         "name": "issue1",   
         "days": 5,
-        "startTime": "2020-07-07",
-        "endTime": "2020-07-12",
+        "startTime": "2020-07-07 08:00:00",
+        "endTime": "2020-07-12 18:00:00",
         "developerNum": 2,
         "relatedTo": []
     },
@@ -12,8 +12,8 @@
         "id": 2,
         "name": "issue2",   
         "days": 6,
-        "startTime": "2020-07-05",
-        "endTime": "2020-07-11",
+        "startTime": "2020-07-05 08:00:00",
+        "endTime": "2020-07-11 18:00:00",
         "developerNum": 3,
         "relatedTo": []
     },
@@ -21,8 +21,8 @@
         "id": 3,
         "name": "issue3",   
         "days": 18,
-        "startTime": "2020-07-02",
-        "endTime": "2020-07-20",
+        "startTime": "2020-07-02 08:00:00",
+        "endTime": "2020-07-20 18:00:00",
         "developerNum": 1,
         "relatedTo": []
     },
@@ -30,8 +30,8 @@
         "id": 4,
         "name":"issue4",   
         "days": 2,
-        "startTime": "2020-07-21",
-        "endTime": "2020-08-23",
+        "startTime": "2020-07-21 08:00:00",
+        "endTime": "2020-08-23 18:00:00",
         "developerNum": 5,
         "relatedTo": [2,3]
     },
@@ -39,8 +39,8 @@
         "id": 8,
         "name":"issue8",
         "days": 4,
-        "startTime": "2020-07-23",
-        "endTime": "2020-07-27",
+        "startTime": "2020-07-23 08:00:00",
+        "endTime": "2020-07-27 18:00:00",
         "developerNum": 5,
         "relatedTo": []
     },
@@ -48,8 +48,8 @@
         "id": 9,
         "name":"issue9",
         "days": 3,
-        "startTime": "2020-08-02",
-        "endTime": "2020-08-05",
+        "startTime": "2020-08-02 08:00:00",
+        "endTime": "2020-08-05 18:00:00",
         "developerNum": 5,
         "relatedTo": []
     },
@@ -57,8 +57,8 @@
         "id": 10,
         "name":"issue10",
         "days": 8,
-        "startTime": "2020-09-2",
-        "endTime": "2020-09-10",
+        "startTime": "2020-09-02 08:00:00",
+        "endTime": "2020-09-10 18:00:00",
         "developerNum": 5,
         "relatedTo": []
     }
