@@ -11,7 +11,7 @@
 }
 .firstblock {
     grid-row: 1 / 4;
-    grid-column: 1;
+    width: 120px;
     position: sticky;
     top:0;
     z-index: 10;
@@ -20,20 +20,6 @@
     font-size: 1em;
     border-right: 2px solid black;
     border-bottom: 2px solid black;
-}
-.date {
-    grid-row: 1 / 4;
-    width: 80px;
-    padding: 0px 20px;
-    height: 100px;
-    display: inline-block;
-    border-right: 2px solid #b0bec5;
-    border-bottom: 2px solid black;
-    background-color: #ffe0b2;
-    text-align: center;
-    position: sticky;
-    top:0;
-    z-index: 10;
 }
 .dev {
     width: 120px;
