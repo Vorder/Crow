@@ -171,6 +171,7 @@ export default {
     border-bottom: 2px solid black;
     background-color: #ffe0b2;
     text-align: center;
+    padding-top: 10px;
     position: sticky;
     top:50px;
     z-index: 10;
