@@ -21,6 +21,7 @@
 <script>
 import devs from '../../server_data/developers.json'
 import dates from '../../server_data/calendar.json'
+import Hourline from './Hourline.vue'
 import Dayline from './Dayline.vue'
 import Weekline from './Weekline.vue'
 import Monthline from './Monthline.vue'
@@ -29,6 +30,7 @@ import Monthline from './Monthline.vue'
 export default {
     components: {
         Dayline,
+        Hourline,
         Weekline,
         Monthline
     },
@@ -39,7 +41,7 @@ export default {
             startdate: null,
             enddate: null,
             // timelines: ["Hourline", "Dayline", "Weekline", "Monthline", "Yearline"]
-            timelines: ["Monthline", "Dayline", "Weekline", "Monthline", "Weekline"]
+            timelines: ["Hourline", "Dayline", "Weekline", "Monthline", "Weekline"]
         }
     },
    
