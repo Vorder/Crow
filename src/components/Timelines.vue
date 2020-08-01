@@ -25,6 +25,7 @@ import Hourline from './Hourline.vue'
 import Dayline from './Dayline.vue'
 import Weekline from './Weekline.vue'
 import Monthline from './Monthline.vue'
+import Yearline from './Yearline.vue'
 
 
 export default {
@@ -32,7 +33,8 @@ export default {
         Dayline,
         Hourline,
         Weekline,
-        Monthline
+        Monthline,
+        Yearline
     },
     data () {
         return{
@@ -40,8 +42,7 @@ export default {
             developers: devs,
             startdate: null,
             enddate: null,
-            // timelines: ["Hourline", "Dayline", "Weekline", "Monthline", "Yearline"]
-            timelines: ["Hourline", "Dayline", "Weekline", "Monthline", "Weekline"]
+            timelines: ["Hourline", "Dayline", "Weekline", "Monthline", "Yearline"]
         }
     },
    
