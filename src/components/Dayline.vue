@@ -144,7 +144,7 @@ export default {
 .date {
     grid-row: 1 / 4;
     width: 80px;
-    padding: 0px 20px;
+    padding: 10px 20px;
     height: 100px;
     display: inline-block;
     border-right: 2px solid #b0bec5;
