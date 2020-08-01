@@ -154,11 +154,13 @@ export default {
     position: sticky;
     width: 120px;
     top:0;
+    padding-top: 20px;
 }
 .week {
     grid-row: 1 / 4;
     height: 100px;
     width: 140px;
+    padding-top: 10px;
     display: inline-block;
     border-right: 2px solid #b0bec5;
     border-bottom: 2px solid black;

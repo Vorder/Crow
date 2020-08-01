@@ -9,7 +9,7 @@
             {{ dev }}
         </div>
         <div class="month" v-for="item in months()" :key="item[0]" 
-        :style="{ 'grid-column': item[2]+13 +'/span'+ item[1], 
+        :style="{ 'grid-column': item[2]+13 +'/span '+ item[1], 
         'width': item[1]* 10 + 'px'}">
             <p>{{ item[0] }} </p>
         </div>
@@ -154,6 +154,6 @@ export default {
     position: sticky;
     top:0;
     z-index: 10;
-    padding-top: 50px;
+    padding-top: 35px;
 }
 </style>

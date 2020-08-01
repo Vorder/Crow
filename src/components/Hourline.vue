@@ -160,7 +160,7 @@ export default {
 .datetime {
     grid-row: 1 / 2;
     width: 720px;
-    padding: 0px 20px;
+    padding: 10px 20px;
     height: 50px;
     display: inline-block;
     border-right: 2px solid #b0bec5;
@@ -169,7 +169,8 @@ export default {
     position: sticky;
     top:0;
     z-index: 10;
-}.time {
+}
+.time {
     grid-row: 2 / 4;
     width: 30px;
     height: 50px;
@@ -181,7 +182,7 @@ export default {
     background-color: #ffe0b2;
     text-align: center;
     position: sticky;
-    top:0;
+    top:50px;
     z-index: 12;
 }
 </style>
