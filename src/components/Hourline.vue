@@ -72,7 +72,6 @@ export default {
             var etime = new Date(issue.endTime);
             var eday = Math.round((etime - this.startdate)/this.day_length)
             var ecol = eday*24 + etime.getHours()+2;
-            console.log(stime,sday,scol, 'clllllcllll',etime,eday, ecol)
             return [scol , ecol];
         },
         area (issue) {

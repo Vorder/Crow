@@ -82,7 +82,6 @@ export default {
                                     ((new Date(issues[k].endTime)) - this.startyear)/this.day_length);
                                 endblock = Math.round(
                                     ((new Date(issues[i].startTime)) - this.startyear)/this.day_length)+1;
-                                    console.log(startblock, endblock)
                                 n.push([issues[k].developerNum, issues[i].developerNum, 
                                 startblock, endblock])
                             }
@@ -99,7 +98,7 @@ export default {
     },
     methods: {
         gridtemplate(){
-            return "120px repeat(" + this.calendar_length +", 5px)";
+            return "120px repeat(" + this.years.length*366 +", 5px)";
         },
         find_date (issue) {
             var d2 = new Date(issue.startTime);
@@ -133,7 +132,6 @@ export default {
                 n.push([month[i%12], days, indx]);
                 indx += days;
             } 
-            console.log(n, '////nn')
             return n;
         },
 
