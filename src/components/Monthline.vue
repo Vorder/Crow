@@ -9,7 +9,7 @@
             {{ dev }}
         </div>
         <div class="month" v-for="item in months()" :key="item[0]" 
-        :style="{ 'grid-column': item[2]+13 +'/span '+ item[1], 
+        :style="{ 'grid-column': item[2]+2 +'/span '+ item[1], 
         'width': item[1]* 10 + 'px'}">
             <p>{{ item[0] }} </p>
         </div>
@@ -95,7 +95,7 @@ export default {
     },
      methods:{
         gridtemplate(){
-            return "repeat(" + this.calendar_length +", 10px)";
+            return "120px repeat(" + this.calendar_length +", 10px)";
         },
         find_date (issue) {
             var d2 = new Date(issue.startTime);
@@ -103,7 +103,7 @@ export default {
             return left;
         },
         area (issue) {
-            var column_start = this.find_date(issue)+12;
+            var column_start = this.find_date(issue)+1;
             var column_end = issue.days;
             var row = issue.developerNum+3;
             var a = '' + row + '/' + column_start + '/' + row +  '/span ' + column_end;
@@ -117,11 +117,27 @@ export default {
             var days = 0;
             var n = new Array();
             var indx = 0;
-            var monthcount = this.enddate.getMonth() - this.monthstart.getMonth();
-            for(let i=0; i<=monthcount; i++){
-                days = this.daysInMonth(this.monthstart.getFullYear(), 
-                this.monthstart.getMonth()+i);
-                n.push([month[this.monthstart.getMonth()+i] + " " + this.monthstart.getFullYear(), 
+            var years = [];
+            var monthscount = 0;
+            for(let j=this.startdate.getFullYear(); j<=this.enddate.getFullYear(); j++){
+                years.push(j);
+            }
+            if(years.length == 1){
+                monthscount = this.enddate.getMonth() - this.monthstart.getMonth();
+            }
+            else {
+                monthscount = 11 - this.startdate.getMonth();
+                for(let k=2;k<years.length;k++){
+                    monthscount += 12;
+                    }
+                monthscount += this.enddate.getMonth() + 1
+            }
+            console.log(monthscount);
+            var yc = 0;
+            for(let i=0; i<=monthscount; i++){
+                if((this.startdate.getMonth()+i)%12 == 0){yc++}
+                days = this.daysInMonth(years[yc], (this.startdate.getMonth()+i)%12);
+                n.push([month[(this.startdate.getMonth()+i)%12] + " " + years[yc], 
                 days, indx]);
                 indx += days;
             } 
