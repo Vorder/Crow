@@ -31,7 +31,7 @@
         "name":"issue4",   
         "days": 2,
         "startTime": "2020-07-21 08:00:00",
-        "endTime": "2020-08-23 18:00:00",
+        "endTime": "2020-07-23 02:00:00",
         "developerNum": 5,
         "relatedTo": [2,3]
     },
