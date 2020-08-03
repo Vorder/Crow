@@ -39,4 +39,7 @@ export default {
   font-size: 1.65em;
   font-weight: bold;
 }
+.row {
+  margin: 0;
+}
 </style>
