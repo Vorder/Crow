@@ -8,7 +8,6 @@
       <div class="col-sm-8">
         <Timeline></Timeline>
       </div>
-      <div class="col-sm-1"></div>
     </div>
   </div>
 </template>
