@@ -1,7 +1,6 @@
 <template>
 <div class="row">
-    <div class="col-sm-12">
-        <h2>TimeLine</h2>
+    <div class="col-sm-12 timeline">
         <keep-alive>
             <div @wheel.ctrl="zoom($event)">
                 <component v-bind:is="timeline" 
@@ -11,9 +10,6 @@
                 </component>
             </div>
         </keep-alive>
-        <div class="row, endtime">
-            <h3>Estimated end time: {{ enddate.toDateString() }}</h3>
-        </div>
     </div>
 </div>
 </template>
@@ -76,9 +72,7 @@ export default {
 </script>
 
 <style>
-.endtime {
-    text-align: center;
-    margin-top: 30px;
-    width: 1150px;
+.timeline {
+    margin-top: 40px;
 }
 </style>
