@@ -127,15 +127,15 @@ export default {
             for(let i=1; i<this.calendar_length+this.diffstart; i++) {
                 if(counter.getDay() == 6) {
                     n.push({ week: "Week " + w++, 
-                    dates: counter.getDate() + month[counter.getMonth()] + " - "});
+                    dates: month[counter.getMonth()] +" "+ counter.getDate() + " - "});
                 }
                 if(counter.getDay() == 5){
-                    n[n.length-1].dates += counter.getDate() + month[counter.getMonth()]
+                    n[n.length-1].dates += month[counter.getMonth()] +" "+ counter.getDate()
                 }
                 counter.setDate(counter.getDate() + 1);
             }
             if(counter.getDay() != 6){
-                n[n.length-1].dates += this.enddate.getDate() + month[this.enddate.getMonth()]
+                n[n.length-1].dates += month[this.enddate.getMonth()] +" "+ this.enddate.getDate()
             }
             return n;
             
