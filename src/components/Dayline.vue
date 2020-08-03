@@ -1,9 +1,7 @@
 <template>
     <div id="container"
     :style="{ 'grid-template-columns': gridtemplate() }">
-        <div class="firstblock">
-            Date Developers
-        </div>
+        <div class="firstblock"></div>
         <div class="dev" v-for="(dev, index) in developers" :key="dev"
         :style="{ 'grid-row': index+4,
          }">
