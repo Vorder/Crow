@@ -3,7 +3,7 @@
     position: relative;
     border: 2px solid #b0bec5;
     width: 1150px;
-    height: 700px;
+    height: auto;
     /* grid-gap:x 5px 50px; */
     /* grid-template: repeat(5, 30px) / repeat(120, 80px); */
     overflow: auto;
@@ -15,7 +15,7 @@
     position: sticky;
     top:0;
     z-index: 10;
-    background-color:#cbae82;
+    background-color:#ffe0b2;
     padding-top: 20px;
     font-size: 1em;
     border-right: 2px solid black;
