@@ -160,7 +160,7 @@ export default {
     grid-row: 1 / 2;
     width: 720px;
     padding: 10px 20px;
-    height: 50px;
+    height: 40px;
     display: inline-block;
     border-right: 2px solid #b0bec5;
     background-color: #ffe0b2;
@@ -181,7 +181,7 @@ export default {
     background-color: #ffe0b2;
     text-align: center;
     position: sticky;
-    top:50px;
+    top:0;
     z-index: 12;
 }
 .hour {
