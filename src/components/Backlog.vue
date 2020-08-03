@@ -24,8 +24,8 @@ export default {
     text-align: left;
 }
 #log {
-    border: 2px solid #819ca9;
-    height: 800px;
+    border-top: 2px solid #819ca9;
+    /* height: 800px; */
     width: 100%;
 }
 .issue_item {
