@@ -1,40 +1,41 @@
 # crow
 
-## Project setup
-- install [nodejs](https://nodejs.org/en/download/package-manager). you can find the tutorial in link below:
+## Setup development environemnt
 
+### NodeJS and NPM 
 
-- install npm 
+```bash
+apt install nodejs npm 
 ```
-apt install npm 
-```
 
-- install [vue-cli](https://cli.vuejs.org/guide/prototyping.html):
+### Clone and Install
 
-- for installing packages:
-```
+```bash
+git clone git@github.com:vorder/crow.git
+cd crow
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
+### Hot reload
+
+```bash
 npm run serve
 ```
 
-### run tests
-```
+### Tests
+
+```bash
 npm test
 ```
 
-### Compiles and minifies for production
-```
+### Deploy
+
+```bash
 npm run build
 ```
 
-### Lints and fixes files
-```
+### Lint
+
+```bash
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
