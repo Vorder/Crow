@@ -17,7 +17,9 @@
         <div class="time" v-for="n in calendar_length*24" 
         :key="n" 
         :style="{ 'grid-column': n+1 }">
-            <p>{{ n%24 }}</p>
+            <div class="hour" v-if="n%24 == 0">00:00</div>
+            <div class="hour" v-else-if="n%24 < 10">0{{ n%24 }}:00</div>
+            <div class="hour" v-else>{{ n%24 }}:00</div>
         </div>
         <div v-for="item in issuelist" :key="'issue'+item.id" 
         :style="{ 'grid-area': area(item) }">
@@ -172,8 +174,8 @@ export default {
 .time {
     grid-row: 2 / 4;
     width: 30px;
-    height: 50px;
-    padding-top: 10px;
+    height: 60px;
+    padding-top: 9px;
     display: inline-block;
     border-right: 2px solid #b0bec5;
     border-top: 2px solid #b0bec5;
@@ -183,5 +185,9 @@ export default {
     position: sticky;
     top:50px;
     z-index: 12;
+}
+.hour {
+    transform: rotate(90deg);
+    padding-top: 0;
 }
 </style>
