@@ -2,7 +2,7 @@
     <div class="issue" :style="{ 'border-left': border + 'px solid white', 
                                  'border-right': border + 'px solid white',
                                  'font-size': textsize + 'em' }">
-      <span class="isstext"> {{ name }} </span>
+      <div class="isstext"><span class="inner"> {{ name }} </span></div>
     </div>
 </template>
 
@@ -26,13 +26,23 @@ export default {
   background-color: #42a5f5;
   color: black;
   padding: 5px;
-  z-index: 2;
   /* text-shadow: 0px 0px 3px black; */
   font-size: 1em;
   text-align: left;
 }
-.isstext{
+.issue:hover ~ .isstext.inner{
+  overflow: visible;
   position: sticky;
   left: 122px;
+}
+.isstext{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 2;
+  position: sticky;
+  left: 122px;
+}
+.isstext:hover{
+  overflow: visible;;
 }
 </style>
